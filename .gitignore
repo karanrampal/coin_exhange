@@ -1,0 +1,13 @@
+# Executable
+main
+
+# Object files
+.objs/
+*.d
+*.o
+
+# VSCode specific
+.vscode/
+
+# Project specific
+data/
