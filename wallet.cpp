@@ -82,3 +82,18 @@ std::string Wallet::toString()
     }
     return content;
 }
+
+void Wallet::processSale(OrderBookEntry& sale)
+{
+    std::vector<std::string> tokens = Tokenizer::tokenize(sale.product, '/');
+    if (sale.orderType == OrderBookType::asksale)
+    {
+        contents[tokens[0]] -= sale.amount;
+        contents[tokens[1]] += sale.amount * sale.price;
+    }
+    else if (sale.orderType == OrderBookType::bidsale)
+    {
+        contents[tokens[0]] += sale.amount;
+        contents[tokens[1]] -= sale.amount * sale.price;
+    }
+}

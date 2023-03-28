@@ -17,6 +17,9 @@ class Wallet
 
         /** Check if order can be fulfilled */
         bool canFulfullOrder(const OrderBookEntry& obe);
+
+        /** Update the contents of the wallet*/
+        void processSale(OrderBookEntry& sale);
         std::string toString();
 
     private:
