@@ -46,7 +46,7 @@ OrderBookEntry CSVReader::stringsToOBE(std::vector<std::string> tokens)
     double price, amount;
     if (tokens.size() != 5)
     {
-        std::cout << "CSVReader::stringsToOBE: Bad line!\n";
+        std::cerr << "CSVReader::stringsToOBE: Bad line!\n";
         throw std::exception{};
     }
     try

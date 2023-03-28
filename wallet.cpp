@@ -11,6 +11,7 @@ void Wallet::insertCurrency(std::string type, double amount)
 {
     if (amount < 0.0)
     {
+        std::cerr << "Amount is negative!\n";
         throw std::exception{};
     }
     double balance;

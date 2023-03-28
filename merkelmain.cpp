@@ -175,7 +175,7 @@ OrderBookEntry MerkelMain::stringsToOBE(std::vector<std::string> tokens, OrderBo
 {
     if (tokens.size() != 3)
     {
-        std::cout << "MerkelMain::stringsToOBE: Invalid entry!";
+        std::cerr << "MerkelMain::stringsToOBE: Invalid entry!\n";
         throw std::exception{};
     }
     double price, amount;
@@ -187,8 +187,8 @@ OrderBookEntry MerkelMain::stringsToOBE(std::vector<std::string> tokens, OrderBo
     catch(const std::exception& e)
     {
         std::cerr << "MerkelMain::stringsToOBE: Bad float: " << e.what() << '\n';
-        throw;
+        throw std::exception{};
     }
-    OrderBookEntry obe{price, amount, currentTime, tokens[0], orderType};
+    OrderBookEntry obe{price, amount, currentTime, tokens[0], orderType, "simuser"};
     return obe;
 }
